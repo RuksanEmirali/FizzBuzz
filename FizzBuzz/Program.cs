@@ -7,18 +7,25 @@
 for (var counter = 1; counter <101; counter++)
 {
     var word = "";
-    foreach(KeyValuePair<int, string> entry in fbb) {
-        if (counter % entry.Key == 0) 
-        {
-            word += entry.Value;
-        }
-    }
-    if (word =="")
+    if (counter % 11 == 0)
     {
-        Console.WriteLine(counter);
+        Console.WriteLine("Bong");
     }
     else
     {
-        Console.WriteLine(word);
+        foreach(KeyValuePair<int, string> entry in fbb) {
+            if (counter % entry.Key == 0) 
+            {
+                word += entry.Value;
+            }
+        }
+        if (word =="")
+        {
+            Console.WriteLine(counter);
+        }
+        else
+        {
+            Console.WriteLine(word);
+        }
     }
 }
