@@ -1,22 +1,24 @@
-﻿using System.Runtime.InteropServices.Marshalling;
+﻿var fbb = new Dictionary<int, string>(){
+    {3, "Fizz"},
+    {5, "Buzz"},
+    {7, "Bang"}
+};
 
 for (var counter = 1; counter <101; counter++)
 {
-    if (counter % 3 == 0 && counter % 5 ==0) 
-    {
-        Console.WriteLine("FizzBuzz");
+    var word = "";
+    foreach(KeyValuePair<int, string> entry in fbb) {
+        if (counter % entry.Key == 0) 
+        {
+            word += entry.Value;
+        }
     }
-        else if (counter % 3 == 0)
-    {
-        Console.WriteLine("Fizz");
-    }
-    else if (counter % 5 == 0)
-    {
-        Console.WriteLine("Buzz");
-    }
-    else 
+    if (word =="")
     {
         Console.WriteLine(counter);
     }
+    else
+    {
+        Console.WriteLine(word);
+    }
 }
-
