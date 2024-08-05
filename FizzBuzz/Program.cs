@@ -3,32 +3,36 @@
     {13, "Fezz"},
     {5, "Buzz"},
     {7, "Bang"},
-    {11, "Bong"}
+    {11, "Bong"},
 };
 
-for (var counter = 1; counter <144; counter++)
+for (var counter = 1; counter <0; counter++)
 {
-    var word = "";
+    string[] wordArray =[];
     foreach(KeyValuePair<int, string> entry in fbb) {
         if (counter % entry.Key == 0) 
         {
-            word += entry.Value;
+            wordArray = [.. wordArray, entry.Value];
         }
     }
-    if (word =="")
+    if (wordArray.Length ==0)
     {
         Console.WriteLine(counter);
     }
-    else if (word.Contains("Bong") && word.Contains("Fezz"))
+    else if (wordArray.Contains("Bong") && wordArray.Contains("Fezz"))
     {
         Console.WriteLine("FezzBong");
     }
-    else if (word.Contains("Bong"))
+    else if (wordArray.Contains("Bong"))
     {
         Console.WriteLine("Bong");
     }
+    else if (counter % 17 == 0) {
+        Array.Reverse(wordArray);
+        Console.WriteLine(String.Join("",wordArray));
+    }
     else
     {
-        Console.WriteLine(word);
+        Console.WriteLine(String.Join("",wordArray));
     }
 }
